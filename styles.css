@@ -44,6 +44,14 @@
 
 }
 
+.calculator-result-section {
+  border-radius:8px;
+  background-color: 	#F5F5F5;
+  margin: 8px 8px 60px 8px;
+  padding: 20px;
+
+}
+
 
 input[type=number], select {
   width: 100%;
@@ -78,4 +86,15 @@ input[type=number], select {
   margin: 8px 8px 60px 8px;
   padding: 20px;
 
+}
+
+
+.result-title {
+  border-style: groove;
+  padding: 5px 5px 5px 5px;
+}
+
+.result-data {
+  border-style: groove;
+  padding: 5px 5px 5px 5px;
 }
