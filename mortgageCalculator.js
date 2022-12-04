@@ -32,6 +32,7 @@ const downPaymentValue = document.querySelector(".down-payment");
 const totalCashValue = document.querySelector(".total-cash");
 
 const calculateBtn = document.querySelector("#calculate-btn");
+const resetBtn = document.querySelector("#reset-btn");
 const toggleBtn = document.querySelector("#customSwitch1");
 
 //create variables
@@ -233,6 +234,16 @@ calculateBtn.addEventListener("click", () => {
   updateData(emi);
 
 });
+
+
+//reset button, refresh all getValue
+resetBtn.addEventListener("click", () => {
+  document.getElementById("form-mortgage").reset();
+  refreshInputValues();
+  let emi = calculateEMI();
+  updateData(emi);
+});
+
 
 //Detecting Toggle Button Press
 var toogleBtnClick = document.querySelectorAll(".custom-control-input").length;
