@@ -27,12 +27,10 @@
         <div class="col-md-12 col-sm-12 col-12">
           <div class="row">
             <div class="col-md-3 col-sm-4 col-6">
-              <input type="radio" id="Pre-New Launch" name="fav_language" value="Pre-New Launch">
+              <input type="radio" id="Pre-New Launch" name="fav_language" value="Pre-New Launch" checked="checked">
               <label for="Pre-New Launch">Pre/New Launch</label><br>
             </div>
             <div class="col-md-3 col-sm-4 col-6">
-              <input type="radio" id="Subsale-radio-button" name="fav_language" value="Subsale-radio-button">
-              <label for="Subsale">Subsale</label><br>
             </div>
           </div>
         </div>
@@ -51,9 +49,8 @@
 
 <!-- Calculator input section 2-->
     <div class="calculator-input-section">
-      Optional
-
         <div class="col-md-12 col-sm-12 col-12">
+          Optional:
           <div class="row">
               <div class="col-md-6 col-sm-12 col-12">
                 <label class="field-name" for="fname">Downpayment RM</label><br>
@@ -135,7 +132,7 @@
     <div class="col-md-12 col-sm-12 col-12">
       <div class="row">
         <div class="col-md-3 col-sm-6 col-6">
-          <button type="button" class="btn btn-primary">Reset</button>
+          <button class="btn btn-primary" id="reset-btn" type="button" name="button">Reset</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6">
           <button class="btn btn-primary" id="calculate-btn" type="button" name="button">Calculate</button>
@@ -146,36 +143,102 @@
       </form>
 
 <!-- result section-->
-    <div class="result">
-      <h3>Monthly Installment</h3>
-      <div class="loan-emi">0</div>
-      <h3>Total Interest Payable</h3>
-      <div class="total-interest">0</div>
-      <h3>Total Amount</h3>
-      <div class="total-amount">0</div>
-      <h3>SPA Legal Fee</h3>
-      <div class="spa-legal">500</div>
-      <h3>Spa Disbursement</h3>
-      <div class="spa-disbursement">2,300</div>
-      <h3>MOT</h3>
-      <div class="spa-mot">203023023</div>
-      <h3>Loan Legal Fee</h3>
-      <div class="loan-legal">203023023</div>
-      <h3>Loan Disbursement</h3>
-      <div class="loan-disbursement">2,300</div>
-      <h3>Loan Stamp Duty</h3>
-      <div class="loan-stamp-duty">203023023</div>
-      <h3>Valuation Fee</h3>
-      <div class="valuation-fee">203023023</div>
-      <h3>Downpayment</h3>
-      <div class="down-payment">0</div>
-      <h3>Total Cash Required</h3>
-      <div class="total-cash">203023023</div>
+<div class="result-section">
+  <div class="calculator-result-section">
+      <div class="col-md-12 col-sm-12 col-12">
+      Calculator Result:
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Monthly Installment:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="loan-emi result-data">0</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="result-title">Total Interest Payable:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="total-interest result-data">0</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="result-title">Total Amount:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="total-amount result-data">0</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">SPA Legal Fee:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="spa-legal result-data">500</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Spa Disbursement:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="spa-disbursement result-data">2,300</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">MOT:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="spa-mot result-data">203023023</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Loan Legal Fee:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="loan-legal result-data">203023023</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Loan Disbursement:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="loan-disbursement result-data">2,300</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Loan Stamp Duty:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="loan-stamp-duty result-data">203023023</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Valuation Fee:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="valuation-fee result-data">203023023</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Downpayment:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="down-payment result-data">0</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-4 col-sm-6 col-6">
+              <div class="result-title">Total Cash Required:</div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-6">
+            <div class="total-cash result-data">203023023</div>
+          </div>
+        </div>
+      </div>
+  </div>
 
-    </div>
 
 <!-- Footer section-->
     <div class="footer-container">
+
 
     </div>
 
