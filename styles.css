@@ -47,13 +47,26 @@
 .calculator-result-section {
   border-radius:8px;
   background-color: 	#F5F5F5;
-  margin: 8px 8px 60px 8px;
+  margin: 8px 8px 20px 8px;
   padding: 8px;
 
 }
 
 
 input[type=number], select {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 1px 1px 1px 1px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #0000CD;
+  text-align: center;
+
+}
+
+input[type=text], select {
   width: 100%;
   padding: 5px 10px;
   margin: 1px 1px 1px 1px;
