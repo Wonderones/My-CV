@@ -19,6 +19,7 @@ const motLegalInput = 0;
 
 //Text result ouput
 const loanEMIValue = document.querySelector(".loan-emi");
+const totalLoanPrincipalValue = document.querySelector(".total-principal");
 const totalInterestValue = document.querySelector(".total-interest");
 const totalAmountValue = document.querySelector(".total-amount");
 const spaLegalFeeValue = document.querySelector(".spa-legal");
@@ -42,10 +43,10 @@ let loanMarginAmount = parseFloat(loanMarginInput.value);
 let loanMarginPercentage = loanMarginAmount / 100;
 let interestRate = parseFloat(interestRateInput.value);
 let loanTenure = parseFloat(loanTenureInput.value);
-let loanAmount = purchasePrice * loanMarginPercentage;
 let interest = interestRate / 12 / 100;
 let loanTenureMonths = loanTenure *12;
 let downPayment = parseFloat(downPaymentInput.value.replace(/,/g, ''));
+let loanAmount = ((purchasePrice * loanMarginPercentage)-downPayment);
 let spaLegalFee = parseFloat(spaLegalInput.value);
 let spaDisbursement = 0;
 let mot = parseFloat(motInput.value);
@@ -54,6 +55,7 @@ let loanDisbursement = 0;
 let loanStampDuty = parseFloat(loanStampDutyInput.value);
 let loanValuationFee = parseFloat(valuationFeeInput.value);
 let totalCashRequired = 0;
+let totalLoanPrincipal = 0;
 
 //calculate SPA Legal Fee
 const calculateSpaLegal = () => {
@@ -191,6 +193,9 @@ const updateData = (emi) => {
   let totalAmount = Math.round(loanTenureMonths * emi);
   totalAmountValue.innerHTML = thousands_separators(totalAmount);
 
+  let totalLoanPrincipalPayable = Math.round(loanAmount);
+  totalLoanPrincipalValue.innerHTML = thousands_separators(totalLoanPrincipalPayable);
+
   let totalInterestPayable = Math.round(totalAmount - loanAmount);
   totalInterestValue.innerHTML = thousands_separators(totalInterestPayable);
 
@@ -257,6 +262,7 @@ const refreshInputValues = () => {
   loanLegalFee = parseFloat(loanLegalInput.value);
   loanDisbursement = 0;
   loanValuationFee = parseFloat(valuationFeeInput.value);
+  totalLoanPrincipal = 0;
 };
 
 
