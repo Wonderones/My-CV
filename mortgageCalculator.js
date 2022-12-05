@@ -7,24 +7,25 @@ const downPaymentInput = document.querySelector(".down-payment-input");
 
 
 //Swich input
-const spaLegalInput = document.querySelector("#customSwitch1");
-const spaDisbursementInput = document.querySelector("#customSwitch2");
-const motInput = document.querySelector("#customSwitch3");
-const loanLegalInput = document.querySelector("#customSwitch4");
-const loanDisbursementInput = document.querySelector("#customSwitch5");
-const loanStampDutyInput = document.querySelector("#customSwitch6");
-const valuationFeeInput = document.querySelector("#customSwitch7");
-const motLegalInput = document.querySelector("#customSwitch8");
+//const spaLegalInput = document.querySelector("#customSwitch1");
+const spaLegalInput = 0;
+const spaDisbursementInput = 0;
+const motInput = 0;
+const loanLegalInput = 0;
+const loanDisbursementInput = 0;
+const loanStampDutyInput = 0;
+const valuationFeeInput = 0;
+const motLegalInput = 0;
 
 //Text result ouput
 const loanEMIValue = document.querySelector(".loan-emi");
 const totalInterestValue = document.querySelector(".total-interest");
 const totalAmountValue = document.querySelector(".total-amount");
 const spaLegalFeeValue = document.querySelector(".spa-legal");
-const spaDisbursementValue = document.querySelector(".spa-legal");
+const spaDisbursementValue = document.querySelector(".spa-disbursement");
 const motValue = document.querySelector(".spa-mot");
 const loanLegalFeeValue = document.querySelector(".loan-legal");
-const loanDisubursementValue = document.querySelector(".loan-disbursement");
+const loanDisbursementValue = document.querySelector(".loan-disbursement");
 const loanStampDutyValue = document.querySelector(".loan-stamp-duty");
 const valuationFeeValue = document.querySelector(".valuation-fee");
 const motLegalFeeValue = document.querySelector(".mot-legal");
@@ -36,7 +37,7 @@ const resetBtn = document.querySelector("#reset-btn");
 const toggleBtn = document.querySelector("#customSwitch1");
 
 //create variables
-let purchasePrice = parseFloat(purchasePriceInput.value);
+let purchasePrice = parseFloat(purchasePriceInput.value.replace(/,/g, ''));
 let loanMarginAmount = parseFloat(loanMarginInput.value);
 let loanMarginPercentage = loanMarginAmount / 100;
 let interestRate = parseFloat(interestRateInput.value);
@@ -44,10 +45,12 @@ let loanTenure = parseFloat(loanTenureInput.value);
 let loanAmount = purchasePrice * loanMarginPercentage;
 let interest = interestRate / 12 / 100;
 let loanTenureMonths = loanTenure *12;
-let downPayment = parseFloat(downPaymentInput.value);
+let downPayment = parseFloat(downPaymentInput.value.replace(/,/g, ''));
 let spaLegalFee = parseFloat(spaLegalInput.value);
+let spaDisbursement = 0;
 let mot = parseFloat(motInput.value);
 let loanLegalFee = parseFloat(loanLegalInput.value);
+let loanDisbursement = 0;
 let loanStampDuty = parseFloat(loanStampDutyInput.value);
 let loanValuationFee = parseFloat(valuationFeeInput.value);
 let totalCashRequired = 0;
@@ -143,8 +146,30 @@ const calculateValuationFee = () => {
   }
 
 return valuationFee
+};
 
+//spa Disbursement logic
+const calculateSpaDisbursement = () => {
+  let disbursementSpa = 0;
+  if(purchasePrice >= 1) {
+    disbursementSpa = 2300;
+  }
+  else if(purchasePrice == 0){
+    disbursementSpa = 0;
+}
+  return disbursementSpa;
+};
 
+//loan Disbursement logic
+const calculateLoanDisbursement = () => {
+  let disbursementloan = 0;
+  if(purchasePrice >= 1) {
+    disbursementloan = 2300;
+  }
+  else if(purchasePrice == 0){
+    disbursementloan = 0;
+}
+  return disbursementloan;
 };
 
 
@@ -172,11 +197,17 @@ const updateData = (emi) => {
   let spaLegalPayable = calculateSpaLegal();
   spaLegalFeeValue.innerHTML = thousands_separators(spaLegalPayable);
 
+  let spaDisbursementPayable = calculateSpaDisbursement();
+  spaDisbursementValue.innerHTML = thousands_separators(spaDisbursementPayable);
+
   let motPayable = calculateMot();
   motValue.innerHTML = thousands_separators(motPayable);
 
   let loanLegalPayable = calculateLoanLegal();
   loanLegalFeeValue.innerHTML = thousands_separators(loanLegalPayable);
+
+  let loanDisbursementPayable = calculateLoanDisbursement();
+  loanDisbursementValue.innerHTML = thousands_separators(loanDisbursementPayable);
 
   let loanStampDutyPayable = Math.round(loanAmount * 0.005);
   loanStampDutyValue.innerHTML = thousands_separators(loanStampDutyPayable);
@@ -187,7 +218,7 @@ const updateData = (emi) => {
   let downPaymentPayable = Math.round(downPayment);
   downPaymentValue.innerHTML = thousands_separators(downPaymentPayable);
 
-  let totalCashPayable = Math.round(2300 + 2300 + spaLegalPayable + motPayable + loanLegalPayable + loanStampDutyPayable + valuationFeePayable + downPaymentPayable);
+  let totalCashPayable = Math.round(spaLegalPayable + spaDisbursementPayable + motPayable + loanLegalPayable + loanDisbursementPayable + loanStampDutyPayable + valuationFeePayable + downPaymentPayable);
   totalCashValue.innerHTML = thousands_separators(totalCashPayable);
 };
 
@@ -210,7 +241,8 @@ function thousands_separators(num)
 //refresh input getValue
 const refreshInputValues = () => {
 //assign value not create new value
-  purchasePrice = parseFloat(purchasePriceInput.value);
+//  purchasePrice = parseFloat(purchasePriceInput.value);
+  purchasePrice = parseFloat(purchasePriceInput.value.replace(/,/g, ''));
   loanMarginAmount = parseFloat(loanMarginInput.value);
   loanMarginPercentage = loanMarginAmount / 100;
   interestRate = parseFloat(interestRateInput.value);
@@ -218,10 +250,12 @@ const refreshInputValues = () => {
   loanAmount = purchasePrice * loanMarginPercentage;
   interest = interestRate / 12 / 100;
   loanTenureMonths = loanTenure *12;
-  downPayment = parseFloat(downPaymentInput.value);
+  downPayment = parseFloat(downPaymentInput.value.replace(/,/g, ''));
   spaLegalFee = parseFloat(spaLegalInput.value);
+  spaDisbursement = 0;
   mot = parseFloat(motInput.value);
   loanLegalFee = parseFloat(loanLegalInput.value);
+  loanDisbursement = 0;
   loanValuationFee = parseFloat(valuationFeeInput.value);
 };
 
@@ -274,7 +308,60 @@ if(t.value==0){
 
 };
 
-//
+
+
+
+// insert commas as thousands separators for purchase Price input
+function addCommas(n){
+  var rx=  /(\d+)(\d{3})/;
+  return String(n).replace(/^\d+/, function(w){
+    while(rx.test(w)){
+      w= w.replace(rx, '$1,$2');
+    }
+    return w;
+  });
+};
+
+// return integers and decimal numbers from input
+// optionally truncates decimals- does not 'round' input
+
+function validDigits(n, dec){
+  n= n.replace(/[^\d\.]+/g, '');
+  var ax1= n.indexOf('.'), ax2= -1;
+  if(ax1!= -1){
+    ++ax1;
+    ax2= n.indexOf('.', ax1);
+    if(ax2> ax1) n= n.substring(0, ax2);
+    if(typeof dec=== 'number') n= n.substring(0, ax1+dec);
+  }
+  return n;
+};
+
+window.onload= function(){
+  var n1= document.getElementById('purchase-price'),
+  n2= document.getElementById('down-payment');
+  n1.value='20,000';
+  n2.value='0';
+
+  n1.onkeyup= n1.onchange=n2.onkeyup=n2.onchange= function(e){
+    e=e|| window.event;
+    var who=e.target || e.srcElement,temp;
+    if(who.id==='purchase-price')  temp= validDigits(who.value,2);
+    else temp= validDigits(who.value);
+    who.value= addCommas(temp);
+  }
+  n1.onblur= n2.onblur= function(){
+    var temp=parseFloat(validDigits(n1.value)),
+    temp2=parseFloat(validDigits(n2.value));
+    if(temp)n1.value=addCommas(temp);
+  }
+};
+
+
+
+
+
+
 
 
 //Change value of switch
