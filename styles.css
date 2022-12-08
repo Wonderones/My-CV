@@ -1,3 +1,5 @@
+/* For Mortgage calculator page*/
+
 .container {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -110,4 +112,12 @@ input[type=text], select {
 .result-data {
   border-style: groove;
   padding: 5px 5px 5px 5px;
+}
+
+
+
+/* for document sample page*/
+
+.modal-content {
+  style="width:100%;
 }
