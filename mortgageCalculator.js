@@ -205,10 +205,10 @@ const updateData = (emi) => {
   let spaDisbursementPayable = calculateSpaDisbursement();
   spaDisbursementValue.innerHTML = thousands_separators(spaDisbursementPayable);
 
-  let motPayable = calculateMot();
+  let motPayable = Math.round(calculateMot());
   motValue.innerHTML = thousands_separators(motPayable);
 
-  let loanLegalPayable = calculateLoanLegal();
+  let loanLegalPayable = Math.round(calculateLoanLegal());
   loanLegalFeeValue.innerHTML = thousands_separators(loanLegalPayable);
 
   let loanDisbursementPayable = calculateLoanDisbursement();
@@ -217,7 +217,7 @@ const updateData = (emi) => {
   let loanStampDutyPayable = Math.round(loanAmount * 0.005);
   loanStampDutyValue.innerHTML = thousands_separators(loanStampDutyPayable);
 
-  let valuationFeePayable = calculateValuationFee();
+  let valuationFeePayable = Math.round(calculateValuationFee());
   valuationFeeValue.innerHTML = thousands_separators(valuationFeePayable)
 
   let downPaymentPayable = Math.round(downPayment);
@@ -269,6 +269,7 @@ const refreshInputValues = () => {
 
 //calculate button. refresh value and calculate again
 calculateBtn.addEventListener("click", () => {
+  validateBlankInput()
   refreshInputValues();
   let emi = calculateEMI();
   updateData(emi);
@@ -301,6 +302,9 @@ for (i = 0; i < toogleBtnClick;  i++) {   //if a button got press
 
 
 
+
+
+
 //Function to set Toggle button value
 const changeValueToggle = () => {
 
@@ -314,7 +318,20 @@ if(t.value==0){
 
 };
 
+//Function to validate button Press. incomplete need to add function to stop and need to built
+const validateBlankInput = () => {
 
+var form = document.getElementById("purchase-price").value;
+
+if (form === '') {
+  alert("Please fill in your '4 Digit PIN' in the box.");
+return false;
+
+} else {
+
+}
+
+};
 
 
 // insert commas as thousands separators for purchase Price input
@@ -366,7 +383,10 @@ window.onload= function(){
 
 
 
-
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+}
 
 
 
