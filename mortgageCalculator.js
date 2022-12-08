@@ -199,7 +199,7 @@ const updateData = (emi) => {
   let totalInterestPayable = Math.round(totalAmount - loanAmount);
   totalInterestValue.innerHTML = thousands_separators(totalInterestPayable);
 
-  let spaLegalPayable = calculateSpaLegal();
+  let spaLegalPayable = Math.round(calculateSpaLegal());
   spaLegalFeeValue.innerHTML = thousands_separators(spaLegalPayable);
 
   let spaDisbursementPayable = calculateSpaDisbursement();
