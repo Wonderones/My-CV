@@ -121,3 +121,8 @@ input[type=text], select {
 .modal-content {
   style="width:100%;
 }
+
+.message-button {
+  color: red;
+  text-align: center;
+}
