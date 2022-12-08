@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Mortgage Calculator</title>
+
+  </head>
+  <body>
+
+<!-- Header section-->
+    <div class="header-container">
+        <a href="index.html" class="back-button">< Back</a>
+        <h4 class="page-hearder">DSR Calculator</h4>
+    </div>
+
+<!-- Calculator input section 1-->
+    <div class="calculator-input-section">
+      <form id="form-dsr-calculator" onsubmit="return false;" method="post">
+        <div class="col-md-12 col-sm-12 col-12">
+          <div class="row">
+            <div class="col-md-2 col-sm-4 col-4">
+              <input type="radio" id="fixed-income-earner" name="fav_language" value="fixed-income-earner" checked="checked">
+              <label for="fixed-income-earner">Fixed income</label><br>
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+              <input type="radio" id="commission-earner" name="fav_language" value="commission-earner">
+              <label for="commission-earner">Commission</label><br>
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+              <input type="radio" id="business-income" name="fav_language" value="business-income">
+              <label for="business-income">Business</label><br>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12">
+          <label class="field-name" for="fname">Net Income</label><br>
+          <input type="text" inputmode="numeric" class="purchase-price" id="fixed-salary" name="purchase-price" value="0" placeholder="number in RM" ><br>
+          <label class="field-name" for="fname">Other income</label><br>
+          <input type="number" class="interest-rate" name="fname" value="0"><br>
+
+        </div>
+      </form>
+    </div>
+<!-- Calculator input section 2-->
+    <div class="calculator-input-section">
+        <div class="col-md-12 col-sm-12 col-12">
+          Commitment:
+          <div class="row">
+              <div class="col-md-6 col-sm-12 col-12">
+                <label class="field-name" for="fname">Current Commitment</label><br>
+                <input type="text" inputmode="numeric" class="down-payment-input" id="down-payment" name="fname" value="0"><br>
+                <label class="field-name" for="fname">Installment New Loan</label><br>
+                <input type="text" inputmode="numeric" class="down-payment-input" id="down-payment" name="fname" value="0"><br>
+              </div>
+          </div>
+        </div>
+    </div>
+
+<!-- Calculator Calculate button-->
+<div class="calculator-btn">
+    <div class="col-md-12 col-sm-12 col-12">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-6">
+          <button class="btn btn-primary" id="reset-btn" type="button" name="button">Reset</button>
+        </div>
+        <div class="col-md-3 col-sm-6 col-6">
+          <button class="btn btn-primary" id="calculate-btn" type="button" name="button">Calculate</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- loan Summary section-->
+<div class="result-section">
+  <div class="calculator-result-section">
+      <div class="col-md-12 col-sm-12 col-12">
+      DSR Result:
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-8">
+              <div class="result-title">Total Income:</div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-4">
+            <div class="loan-emi result-data">0</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-3 col-sm-6 col-8">
+            <div class="result-title">Total Commitment:</div>
+          </div>
+            <div class="col-md-3 col-sm-6 col-4">
+                <div class="total-principal result-data">0</div>
+          </div>
+      <div class="w-100"></div>
+          <div class="col-md-3 col-sm-6 col-8">
+            <div class="result-title">DSR %:</div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-4">
+              <div class="total-interest result-data">0</div>
+          </div>
+
+
+<!-- Footer section-->
+    <div class="footer-container">
+
+
+    </div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="dsr-calculator.js" charset="utf-8"></script>
+
+  </body>
+</html>
