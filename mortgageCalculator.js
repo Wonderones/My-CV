@@ -32,6 +32,26 @@ const valuationFeeValue = document.querySelector(".valuation-fee");
 const motLegalFeeValue = document.querySelector(".mot-legal");
 const downPaymentValue = document.querySelector(".down-payment");
 const totalCashValue = document.querySelector(".total-cash");
+const stage1AmountValue = document.querySelector(".stage1-amount");
+const stage2aAmountValue = document.querySelector(".stage2a-amount");
+const stage2bAmountValue = document.querySelector(".stage2b-amount");
+const stage2cAmountValue = document.querySelector(".stage2c-amount");
+const stage2dAmountValue = document.querySelector(".stage2d-amount");
+const stage2eAmountValue = document.querySelector(".stage2e-amount");
+const stage2fAmountValue = document.querySelector(".stage2f-amount");
+const stage2gAmountValue = document.querySelector(".stage2g-amount");
+const stage2hAmountValue = document.querySelector(".stage2h-amount");
+const stage3to5AmountValue = document.querySelector(".stage3to5-amount");
+const stage1TotalInterestValue = document.querySelector(".stage1-total-interest");
+const stage2aTotalInterestValue = document.querySelector(".stage2a-total-interest");
+const stage2bTotalInterestValue = document.querySelector(".stage2b-total-interest");
+const stage2cTotalInterestValue = document.querySelector(".stage2c-total-interest");
+const stage2dTotalInterestValue = document.querySelector(".stage2d-total-interest");
+const stage2eTotalInterestValue = document.querySelector(".stage2e-total-interest");
+const stage2fTotalInterestValue = document.querySelector(".stage2f-total-interest");
+const stage2gTotalInterestValue = document.querySelector(".stage2g-total-interest");
+const stage2hTotalInterestValue = document.querySelector(".stage2h-total-interest");
+const stage3to5TotalInterest = document.querySelector(".stage3to5-total-interest");
 
 const calculateBtn = document.querySelector("#calculate-btn");
 const resetBtn = document.querySelector("#reset-btn");
@@ -56,6 +76,30 @@ let loanStampDuty = parseFloat(loanStampDutyInput.value);
 let loanValuationFee = parseFloat(valuationFeeInput.value);
 let totalCashRequired = 0;
 let totalLoanPrincipal = 0;
+let progressive = parseFloat(purchasePrice * loanMarginPercentage);
+let stage1Amount = parseFloat(progressive * 0.1);
+let stage2aAmount = parseFloat(progressive * 0.1);
+let stage2bAmount = parseFloat(progressive * 0.15);
+let stage2cAmount = parseFloat(progressive * 0.1);
+let stage2dAmount = parseFloat(progressive * 0.1);
+let stage2eAmount = parseFloat(progressive * 0.1);
+let stage2fAmount = parseFloat(progressive * 0.05);
+let stage2gAmount = parseFloat(progressive * 0.025);
+let stage2hAmount = parseFloat(progressive * 0.025);
+let stage3to5Amount = parseFloat(progressive * 0.25);
+let stage1Interest = parseFloat((stage1Amount * interest)*0);
+let stage2aInterest = parseFloat((stage2aAmount * interest)+ stage1Interest);
+let stage2bInterest = parseFloat((stage2bAmount * interest)+ stage2aInterest);
+let stage2cInterest = parseFloat((stage2cAmount * interest) + stage2bInterest);
+let stage2dInterest = parseFloat((stage2dAmount * interest)+ stage2cInterest);
+let stage2eInterest = parseFloat((stage2eAmount * interest)+stage2dInterest);
+let stage2fInterest = parseFloat((stage2fAmount * interest)+stage2eInterest);
+let stage2gInterest = parseFloat((stage2gAmount * interest)+stage2fInterest);
+let stage2hInterest = parseFloat((stage2hAmount * interest)+stage2gInterest);
+let stage3to5Interest = parseFloat((stage3to5Amount * interest)+stage2hInterest);
+
+
+
 
 //calculate SPA Legal Fee
 const calculateSpaLegal = () => {
@@ -225,7 +269,71 @@ const updateData = (emi) => {
 
   let totalCashPayable = Math.round(spaLegalPayable + spaDisbursementPayable + motPayable + loanLegalPayable + loanDisbursementPayable + loanStampDutyPayable + valuationFeePayable + downPaymentPayable);
   totalCashValue.innerHTML = thousands_separators(totalCashPayable);
+
+  let totalstage1AmountPayable = Math.round(stage1Amount);
+  stage1AmountValue.innerHTML = thousands_separators(totalstage1AmountPayable);
+
+  let totalstage2aAmountPayable = Math.round(stage2aAmount);
+  stage2aAmountValue.innerHTML = thousands_separators(totalstage2aAmountPayable);
+
+  let totalstage2bAmountPayable = Math.round(stage2bAmount);
+  stage2bAmountValue.innerHTML = thousands_separators(totalstage2bAmountPayable);
+
+  let totalstage2cAmountPayable = Math.round(stage2cAmount);
+  stage2cAmountValue.innerHTML = thousands_separators(totalstage2cAmountPayable);
+
+  let totalstage2dAmountPayable = Math.round(stage2dAmount);
+  stage2dAmountValue.innerHTML = thousands_separators(totalstage2dAmountPayable);
+
+  let totalstage2eAmountPayable = Math.round(stage2eAmount);
+  stage2eAmountValue.innerHTML = thousands_separators(totalstage2eAmountPayable);
+
+  let totalstage2fAmountPayable = Math.round(stage2fAmount);
+  stage2fAmountValue.innerHTML = thousands_separators(totalstage2fAmountPayable);
+
+  let totalstage2gAmountPayable = Math.round(stage2gAmount);
+  stage2gAmountValue.innerHTML = thousands_separators(totalstage2gAmountPayable);
+
+  let totalstage2hAmountPayable = Math.round(stage2hAmount);
+  stage2hAmountValue.innerHTML = thousands_separators(totalstage2hAmountPayable);
+
+  let totalstage3to5AmountPayable = Math.round(stage3to5Amount);
+  stage3to5AmountValue.innerHTML = thousands_separators(totalstage3to5AmountPayable);
+
+  let stage1TotalInterestPayable = Math.round(stage1Interest);
+  stage1TotalInterestValue.innerHTML = thousands_separators(stage1TotalInterestPayable);
+
+  let stage2aTotalInterestPayable = Math.round(stage2aInterest);
+  stage2aTotalInterestValue.innerHTML = thousands_separators(stage2aTotalInterestPayable);
+
+  let stage2bTotalInterestPayable = Math.round(stage2bInterest);
+  stage2bTotalInterestValue.innerHTML = thousands_separators(stage2bTotalInterestPayable);
+
+  let stage2cTotalInterestPayable = Math.round(stage2cInterest);
+  stage2cTotalInterestValue.innerHTML = thousands_separators(stage2cTotalInterestPayable);
+
+  let stage2dTotalInterestPayable = Math.round(stage2dInterest);
+  stage2dTotalInterestValue.innerHTML = thousands_separators(stage2dTotalInterestPayable);
+
+  let stage2eTotalInterestPayable = Math.round(stage2eInterest);
+  stage2eTotalInterestValue.innerHTML = thousands_separators(stage2eTotalInterestPayable);
+
+  let stage2fTotalInterestPayable = Math.round(stage2fInterest);
+  stage2fTotalInterestValue.innerHTML = thousands_separators(stage2fTotalInterestPayable);
+
+  let stage2gTotalInterestPayable = Math.round(stage2gInterest);
+  stage2gTotalInterestValue.innerHTML = thousands_separators(stage2gTotalInterestPayable);
+
+  let stage2hTotalInterestPayable = Math.round(stage2hInterest);
+  stage2hTotalInterestValue.innerHTML = thousands_separators(stage2hTotalInterestPayable);
+
+  let stage3to5TTotalInterestPayable = Math.round(stage3to5Interest);
+  stage3to5TotalInterest.innerHTML = thousands_separators(stage3to5TTotalInterestPayable);
+
+
 };
+
+
 
 //call the function to calculate emi
 const init = () => {
@@ -263,6 +371,27 @@ const refreshInputValues = () => {
   loanDisbursement = 0;
   loanValuationFee = parseFloat(valuationFeeInput.value);
   totalLoanPrincipal = 0;
+  progressive = parseFloat(purchasePrice * loanMarginPercentage);
+  stage1Amount = parseFloat(progressive * 0.1);
+  stage2aAmount = parseFloat(progressive * 0.1);
+  stage2bAmount = parseFloat(progressive * 0.15);
+  stage2cAmount = parseFloat(progressive * 0.1);
+  stage2dAmount = parseFloat(progressive * 0.1);
+  stage2eAmount = parseFloat(progressive * 0.1);
+  stage2fAmount = parseFloat(progressive * 0.05);
+  stage2gAmount = parseFloat(progressive * 0.025);
+  stage2hAmount = parseFloat(progressive * 0.025);
+  stage3to5Amount = parseFloat(progressive * 0.25);
+  stage1Interest = parseFloat((stage1Amount * interest)*0);
+  stage2aInterest = parseFloat((stage2aAmount * interest)+ stage1Interest);
+  stage2bInterest = parseFloat((stage2bAmount * interest)+ stage2aInterest);
+  stage2cInterest = parseFloat((stage2cAmount * interest) + stage2bInterest);
+  stage2dInterest = parseFloat((stage2dAmount * interest)+ stage2cInterest);
+  stage2eInterest = parseFloat((stage2eAmount * interest)+stage2dInterest);
+  stage2fInterest = parseFloat((stage2fAmount * interest)+stage2eInterest);
+  stage2gInterest = parseFloat((stage2gAmount * interest)+stage2fInterest);
+  stage2hInterest = parseFloat((stage2hAmount * interest)+stage2gInterest);
+  stage3to5Interest = parseFloat((stage3to5Amount * interest)+stage2hInterest);
 };
 
 
