@@ -98,7 +98,7 @@ input[type=text], select {
 }
 
 .calculator-btn {
-  margin: 8px 8px 60px 8px;
+  margin: 8px 8px 20px 8px;
   padding: 20px;
 
 }
@@ -114,6 +114,10 @@ input[type=text], select {
   padding: 5px 5px 5px 5px;
 }
 
+
+.result-col {
+  padding: 0 0 0 0;
+}
 
 
 /* for document sample page*/
