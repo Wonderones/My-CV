@@ -1,0 +1,173 @@
+
+
+.center {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-stack {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 40px;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-stack-bottom {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width:300px;
+  width: 70%;
+
+}
+
+
+.animated {
+   background-repeat: no-repeat;
+   background-position: left top;
+   padding-top: 0px;
+   margin-bottom:60px;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+   -webkit-animation-name: shake;
+   animation-name: shake;
+}
+
+
+.present-container {
+  width:100%;
+  max-width:300px;
+  margin: auto;
+}
+
+.box, .lid {
+  background:
+    radial-gradient(white 15%, transparent 15.1%)
+    rgb(240,58,58);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  position: relative;
+  margin: 0 auto;
+
+}
+
+.box {
+  margin: auto;
+  width: 100%;
+  max-width: 200px;
+  height: 150px;
+  margin-bottom: 100px
+}
+
+
+.lid {
+  margin: auto;
+  width: 100%;
+  max-width: 200px;
+  height: 30px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0 2px;
+  background-color: rgb(216,52,52);
+  top: 0;
+  left: 0;
+  transition:
+    top ease-out 0.5s,
+    left ease-out 0.5s,
+    transform ease-out 0.5s;
+}
+
+.box span, .lid span {
+  position: absolute;
+  display: block;
+  background: rgba(235,199,0,0.8);
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+}
+
+.box span:first-child {
+  width: 100%;
+  height: 30px;
+  top: 50px;
+}
+
+
+.box span:last-child, .lid span{
+  width: 30px;
+  height: 100%;
+  left: 85px;
+}
+
+.lid span {
+  left: 87px;
+
+}
+
+.promo {
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, Serif;
+  text-align: center;
+  position: relative;
+  top: 10px;
+  height: 0;
+  transition: all ease-out 0.7s;
+}
+
+.promo p {
+  font-size: 24px;
+  margin:0;
+}
+
+.promo h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+
+.present-container:hover .lid {
+  top: -100px;
+  transform: rotateZ(10deg);
+  left: 10px;
+}
+
+.present-container:hover .promo {
+  top: -80px;
+}
+
+
+.start-message {
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, Serif;
+  text-align: center;
+  position: relative;
+  top: 10px;
+  height: 0;
+  transition: all ease-out 0.7s;
+  font-size: 20px;
+  margin: 10px;
+
+}
