@@ -27,16 +27,16 @@
 }
 
 
-.animated:active {
+.animated:hover, .animated:active {
    background-repeat: no-repeat;
    background-position: left top;
    padding-top: 0px;
    margin-bottom:60px;
 
-   animation-duration: 5s;
+   animation-duration: 1s;
 
    animation-fill-mode: both;
-   animation: shakeobj 0.5s;
+   animation: shakeobj 1s;
 }
 
 
