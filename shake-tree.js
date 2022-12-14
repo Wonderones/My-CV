@@ -13,7 +13,7 @@ let xmasTreeClick = document.querySelector("#xmas-tree-image");
 
 xmasTreeClick.addEventListener("click", function () {
 
-    if (clickCount  >5) {
+    if (clickCount  >50) {
     xmasTreeClick.style.display = 'none';
     presentSection.style.display = 'block';
 
