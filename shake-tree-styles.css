@@ -27,7 +27,7 @@
 }
 
 
-.animated:hover {
+.animated:focus {
    background-repeat: no-repeat;
    background-position: left top;
    padding-top: 0px;
