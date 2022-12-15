@@ -7,12 +7,21 @@
   text-align: center;
 }
 
+.btn {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  max-width: 150px
+}
+
 .image-stack {
   position: relative;
   width: 100%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
+  display: none;
 }
 
 .image-stack-bottom {
@@ -27,15 +36,13 @@
 }
 
 
+
 .animated:active {
-   background-repeat: no-repeat;
+   background-repeat: repeat;
    background-position: left top;
    padding-top: 0px;
    margin-bottom:60px;
-
    animation-duration: 1s;
-
-   animation-fill-mode: both;
    animation: shakeobj 1s;
 }
 
@@ -80,7 +87,7 @@
   width: 100%;
   max-width: 200px;
   height: 150px;
-  margin-bottom: 100px
+  margin-bottom: 50px
 }
 
 
@@ -137,7 +144,7 @@
 }
 
 .promo p {
-  font-size: 24px;
+  font-size: 12px;
   margin:0;
 }
 
@@ -170,10 +177,78 @@
 }
 
 
-.start-message-container {
+.start-message-container  {
   position: relative;
   width: 100%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
+  display: none;
+}
+
+.initiate-message-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.my-message-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+
+}
+
+.end-message-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+
+}
+
+.message-box {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  border-radius:20px;
+  background-color: 	#F5F5F5;
+  max-width: 500px;
+  position: relative;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.present-message-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+
+}
+.letter-btn {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  max-width: 150px
+
+}
+
+.letter-text {
+text-align: center;
+
 }
