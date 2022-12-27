@@ -1,4 +1,4 @@
-//text input
+//text input   // Get a reference to the input element
 const purchasePriceInput = document.querySelector(".purchase-price");
 const loanMarginInput = document.querySelector(".loan-margin");
 const interestRateInput = document.querySelector(".interest-rate");
@@ -398,7 +398,7 @@ const refreshInputValues = () => {
 
 //calculate button. refresh value and calculate again
 calculateBtn.addEventListener("click", () => {
-  validateBlankInput()
+  checkInputValues();
   refreshInputValues();
   let emi = calculateEMI();
   updateData(emi);
@@ -448,19 +448,40 @@ if(t.value==0){
 };
 
 //Function to validate button Press. incomplete need to add function to stop and need to built
-const validateBlankInput = () => {
+const checkInputValues = (event) => {
 
-var form = document.getElementById("purchase-price").value;
+  var inputs = document.getElementsByTagName('input');
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].value == '') {
+      if (inputs[i].id == 'purchase-price') {
+        alert('Please enter Purchase Price');
+         event.preventDefault();
+      } else if (inputs[i].id == 'interest-rate') {
+        alert('Please enter Interest Rate');
+        event.preventDefault();
+      } else if (inputs[i].id == 'loan-tenure') {
+        alert('Please enter Loan Tenure');
+        event.preventDefault();
+      } else if (inputs[i].id == 'loan-margin') {
+        alert('Please enter Loan Margin');
+        event.preventDefault();
+      } else if (inputs[i].id == 'down-payment') {
+        alert('Enter min 0 downpayment');
+        event.preventDefault();
+      }
+      return false;
+    }
+  }
+  return true;
 
-if (form === '') {
-  alert("Please fill in your '4 Digit PIN' in the box.");
-return false;
-
-} else {
-
-}
 
 };
+ // If the value is an empty string, display an alert and prevent the form from being submitted
+
+// Display a different alert message depending on the input field
+//
+
+
 
 
 // insert commas as thousands separators for purchase Price input
