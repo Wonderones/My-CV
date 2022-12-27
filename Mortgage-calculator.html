@@ -35,15 +35,16 @@
           </div>
         </div>
         <div class="col-md-6 col-sm-12 col-12">
-          <label class="field-name" for="fname">Purchase Price</label><br>
-          <input type="text" inputmode="numeric" class="purchase-price" id="purchase-price" name="purchase-price" value="0" placeholder="number in RM" ><br>
-          <label class="field-name" for="fname">Interest Rate %</label><br>
-          <input type="number" class="interest-rate" name="fname" value="3.80"><br>
-          <label class="field-name" for="fname">Loan Tenure (years)</label><br>
-          <input type="number" class="loan-tenure" name="fname" value="35"><br>
-          <label class="field-name" for="fname">Max Loan Margin%</label><br>
-          <input type="number" class="loan-margin" name="fname" value="90"><br>
-
+          <form onsubmit="return checkForm(event)">
+            <label class="field-name" for="fname">Purchase Price</label><br>
+            <input type="text" inputmode="numeric" class="purchase-price" id="purchase-price" name="purchase-price" value="0" placeholder="number in RM" ><br>
+            <label class="field-name" for="fname">Interest Rate %</label><br>
+            <input type="number" class="interest-rate" id="interest-rate" name="fname" value="3.80"><br>
+            <label class="field-name"  for="fname">Loan Tenure (years)</label><br>
+            <input type="number" class="loan-tenure" id="loan-tenure" name="fname" value="35"><br>
+            <label class="field-name" for="fname">Max Loan Margin%</label><br>
+            <input type="number" class="loan-margin" id="loan-margin" name="fname" value="90"><br>
+          </form>
         </div>
     </div>
 
@@ -55,6 +56,7 @@
               <div class="col-md-6 col-sm-12 col-12">
                 <label class="field-name" for="fname">Additonal Downpayment (Use only if want lower loan amount)</label><br>
                 <input type="text" inputmode="numeric" class="down-payment-input" id="down-payment" name="fname" value="0"><br>
+
               </div>
             <div class="w-100"></div>
 <!--            <div class="col-md-3 col-sm-6 col-6">Free SPA Legal Fee</div>
@@ -136,12 +138,12 @@
           <button class="btn btn-primary" id="reset-btn" type="button" name="button">Reset</button>
         </div>
         <div class="col-md-3 col-sm-6 col-6">
-          <button class="btn btn-primary" id="calculate-btn" type="button" name="button">Calculate</button>
+          <button  class="btn btn-primary" id="calculate-btn" type="button" name="button">Calculate</button>
         </div>
       </div>
     </div>
 </div>
-      </form>
+
 
 <!-- loan Summary section-->
 <div class="result-section">
