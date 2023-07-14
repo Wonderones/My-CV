@@ -175,3 +175,9 @@ input[type=text], select {
 p {
   font-size: 10px;
 }
+
+#map {
+  width: 100%; /* Set the desired width */
+  height: 400px; /* Set the desired height */
+  /* Add any other desired styles */
+}
