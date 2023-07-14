@@ -13,7 +13,28 @@
 <!-- Google Map Javascript API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA--t_tEAioJuMPtQvXxrRlK-TwOLOTPj0"></script>
 
-    <title>Document-sample</title>
+    <script>
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 3.241101, lng: 101.477548},
+        zoom: 10
+      });
+
+      // Add a marker
+      var marker = new google.maps.Marker({
+        position: {lat: 3.241101, lng: 101.477548},
+        map: map,
+        title: 'Clickable Pin'
+      });
+
+      // Add a click event listener to the marker
+      marker.addListener('click', function() {
+        window.location.href = 'link-to-next-page.html';
+      });
+    }
+  </script>
+
+    <title>Landed Project Map</title>
 
   </head>
   <body>
@@ -28,7 +49,7 @@
 
 <!-- Body Map Section-->
 
-<div id="map"></div>
+<div id="map">Map here</div>
 
 <script>
   initMap();
@@ -43,26 +64,7 @@
 
 
 <!-- Google Map Javascript API -->
-  <script>
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 3.241101, lng: 101.477548},
-      zoom: 10
-    });
 
-    // Add a marker
-    var marker = new google.maps.Marker({
-      position: {lat: 3.241101, lng: 101.477548},
-      map: map,
-      title: 'Clickable Pin'
-    });
-
-    // Add a click event listener to the marker
-    marker.addListener('click', function() {
-      window.location.href = 'link-to-next-page.html';
-    });
-  }
-</script>
 <!-- test script -->
 
 
