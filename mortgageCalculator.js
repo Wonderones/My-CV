@@ -333,6 +333,16 @@ const updateData = (emi) => {
 
 };
 
+//return 0 if negative
+
+function convertNegativeToZero(number) {
+  if (number < 0) {
+    return 0;
+  } else {
+    return number;
+  }
+}
+
 
 
 //call the function to calculate emi
@@ -372,26 +382,26 @@ const refreshInputValues = () => {
   loanValuationFee = parseFloat(valuationFeeInput.value);
   totalLoanPrincipal = 0;
   progressive = parseFloat(purchasePrice * loanMarginPercentage);
-  stage1Amount = parseFloat(progressive * 0.1);
-  stage2aAmount = parseFloat(progressive * 0.1);
-  stage2bAmount = parseFloat(progressive * 0.15);
-  stage2cAmount = parseFloat(progressive * 0.1);
-  stage2dAmount = parseFloat(progressive * 0.1);
-  stage2eAmount = parseFloat(progressive * 0.1);
-  stage2fAmount = parseFloat(progressive * 0.05);
-  stage2gAmount = parseFloat(progressive * 0.025);
-  stage2hAmount = parseFloat(progressive * 0.025);
-  stage3to5Amount = parseFloat(progressive * 0.25);
-  stage1Interest = parseFloat((stage1Amount * interest)*0);
-  stage2aInterest = parseFloat((stage2aAmount * interest)+ stage1Interest);
-  stage2bInterest = parseFloat((stage2bAmount * interest)+ stage2aInterest);
-  stage2cInterest = parseFloat((stage2cAmount * interest) + stage2bInterest);
-  stage2dInterest = parseFloat((stage2dAmount * interest)+ stage2cInterest);
-  stage2eInterest = parseFloat((stage2eAmount * interest)+stage2dInterest);
-  stage2fInterest = parseFloat((stage2fAmount * interest)+stage2eInterest);
-  stage2gInterest = parseFloat((stage2gAmount * interest)+stage2fInterest);
-  stage2hInterest = parseFloat((stage2hAmount * interest)+stage2gInterest);
-  stage3to5Interest = parseFloat((stage3to5Amount * interest)+stage2hInterest);
+  stage1Amount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.1)*purchasePrice))-downPayment) ;
+  stage2aAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.2)*purchasePrice))-downPayment);
+  stage2bAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.35)*purchasePrice))-downPayment);
+  stage2cAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.45)*purchasePrice))-downPayment);
+  stage2dAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.55)*purchasePrice))-downPayment);
+  stage2eAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.65)*purchasePrice))-downPayment);
+  stage2fAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.70)*purchasePrice))-downPayment);
+  stage2gAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.725)*purchasePrice))-downPayment);
+  stage2hAmount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+0.750)*purchasePrice))-downPayment);
+  stage3to5Amount = convertNegativeToZero((parseFloat(((loanMarginPercentage-1)+1)*purchasePrice))-downPayment);
+  stage1Interest = parseFloat((stage1Amount * interest));
+  stage2aInterest = parseFloat(stage2aAmount * interest);
+  stage2bInterest = parseFloat(stage2bAmount * interest);
+  stage2cInterest = parseFloat(stage2cAmount * interest);
+  stage2dInterest = parseFloat(stage2dAmount * interest);
+  stage2eInterest = parseFloat(stage2eAmount * interest);
+  stage2fInterest = parseFloat(stage2fAmount * interest);
+  stage2gInterest = parseFloat(stage2gAmount * interest);
+  stage2hInterest = parseFloat(stage2hAmount * interest);
+  stage3to5Interest = parseFloat(stage3to5Amount * interest);
 };
 
 
