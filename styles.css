@@ -107,11 +107,13 @@ input[type=text], select {
 .result-title {
   border-style: groove;
   padding: 5px 5px 5px 5px;
+  font-size: 14px;
 }
 
 .result-data {
   border-style: groove;
   padding: 5px 5px 5px 5px;
+  font-size: 14px;
 }
 
 
@@ -140,5 +142,42 @@ input[type=text], select {
 .result-title-progressive {
   border-style: groove;
   padding: 5px 5px 5px 5px;
+  font-size: 10px;
+}
+
+.container {
+  position: relative;
+  width: 200px;
+  height: 100px;
+}
+
+.hoverable {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+
+.info-icon {
+  position: relative;
+  top: -4px;
+  right: 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.info {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #dbd7d7;
+  padding: 5px;
+  border: 1px solid #ccc;
+   z-index: 2;
+}
+
+p {
   font-size: 10px;
 }
