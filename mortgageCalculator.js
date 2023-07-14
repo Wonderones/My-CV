@@ -577,3 +577,21 @@ function onClick(element) {
 
 
   // $("#customSwitch")[0] check switch value
+
+
+  //info hoverable
+
+  const infoIcons = document.querySelectorAll('.info-icon');
+  const infoElements = document.querySelectorAll('.info');
+
+  infoIcons.forEach(function(infoIcon, index) {
+    infoIcon.addEventListener('mouseover', function() {
+      const infoElement = infoElements[index];
+      infoElement.style.display = 'block';
+    });
+
+    infoIcon.addEventListener('mouseout', function() {
+      const infoElement = infoElements[index];
+      infoElement.style.display = 'none';
+    });
+  });
