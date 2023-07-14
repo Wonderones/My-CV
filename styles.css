@@ -145,12 +145,6 @@ input[type=text], select {
   font-size: 10px;
 }
 
-.container {
-  position: relative;
-  width: 200px;
-  height: 100px;
-}
-
 .hoverable {
   position: absolute;
   top: 50%;
