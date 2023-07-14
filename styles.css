@@ -130,3 +130,15 @@ input[type=text], select {
   color: red;
   text-align: center;
 }
+
+.result-data-progressive {
+  border-style: groove;
+  padding: 5px 5px 5px 5px;
+  font-size: 10px;
+}
+
+.result-title-progressive {
+  border-style: groove;
+  padding: 5px 5px 5px 5px;
+  font-size: 10px;
+}
